@@ -1,0 +1,17 @@
+@font-face {
+	font-family: "Waltograph";
+	src: url(../images/waltographUI.ttf) format("truetype");
+}
+
+body { 
+	font-family: "Waltograph", Verdana, Tahoma;
+}
+
+.bottom {
+	display: flex;
+	justify-content: center;
+}
+
+.center {
+	text-align: center;
+}
