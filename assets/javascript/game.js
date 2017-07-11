@@ -2,7 +2,7 @@ window.onload = function bootup() {
 	
 	var alphabet = 'abcdefghijklmnopqrstuvwxyz';
 	var guesses = 10;
-	var words = ["stitch", "mickey mouse", "goofy", "pluto", "nemo"];
+	var words = ["lilo and stitch", "mickey mouse", "goofy", "pluto", "nemo", "minnie mouse", "donald duck", "oswald the lucky rabbit", "mulan", "winnie the pooh", "jiminy cricket", "ludwig von drake"];
 	var message = {
 		win: 'You win!',
 		lose: 'Ouch... try again.',
@@ -18,25 +18,28 @@ window.onload = function bootup() {
 	var maskedWord = "";//wordValue.replace(/./g, "-");
 	displayWord();
 	function displayWord() {
-		maskedWord = "<p>";
+		maskedWord = "<span>";
 		for (var j = 0; j < wordValue.length; j++) {
 			if (rightChars.includes(wordValue[j])) {
 				maskedWord += wordValue[j];
 			} else if (wordValue[j] === " ") {
-				maskedWord += ("</p> <p>");
-				// shownLetter ++;
+				maskedWord += ("</span> <span>");
 			} else {
 				maskedWord += ("-");
 			}
 		}
-		maskedWord += "</p>"
+		maskedWord += "</span>"
 		document.getElementById("ran-word").innerHTML = maskedWord;
 	}
-
-	if (wordValue.includes(" ")) {
-		shownLetter ++;
+	findSpace()
+	function findSpace() {
+		for (var k = 0; k < wordValue.length; k++) {
+			if (wordValue[k] === " ") {
+				shownLetter ++;
+			}
+		}
 	}
-	
+
 	console.log(wordValue);
 
 	// var wins = 0;
