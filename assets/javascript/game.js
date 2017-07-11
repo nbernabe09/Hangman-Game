@@ -15,20 +15,28 @@ window.onload = function bootup() {
 	document.getElementById("guess-count").textContent = guesses;
 	
 	var wordValue = words[Math.floor(Math.random() * words.length)];
-	var maskedWord = "<p>";//wordValue.replace(/./g, "-");
-	for (var j = 0; j < wordValue.length; j++) {
-		console.log(wordValue[j]);
-		if (rightChars.includes(wordValue[j])) {
-			maskedWord += wordValue[j];
-		} else if (wordValue[j] === " ") {
-			maskedWord += ("</p> <p>");
-			shownLetter ++;
-		} else {
-			maskedWord += ("-");
+	var maskedWord = "";//wordValue.replace(/./g, "-");
+	displayWord();
+	function displayWord() {
+		maskedWord = "<p>";
+		for (var j = 0; j < wordValue.length; j++) {
+			if (rightChars.includes(wordValue[j])) {
+				maskedWord += wordValue[j];
+			} else if (wordValue[j] === " ") {
+				maskedWord += ("</p> <p>");
+				// shownLetter ++;
+			} else {
+				maskedWord += ("-");
+			}
 		}
+		maskedWord += "</p>"
+		document.getElementById("ran-word").innerHTML = maskedWord;
 	}
-	maskedWord += "</p>"
-	document.getElementById("ran-word").innerHTML = maskedWord;
+
+	if (wordValue.includes(" ")) {
+		shownLetter ++;
+	}
+	
 	console.log(wordValue);
 
 	// var wins = 0;
@@ -57,6 +65,10 @@ window.onload = function bootup() {
 	document.onkeyup = function(event) {
   	var key = event.key.toLowerCase();
   	console.log(key);
+		if (event.keyCode == 32) {
+			return false;
+		}
+
   	if (wordValue.indexOf(key) > -1) {
   		if (rightChars.indexOf(key) === -1) {
   			rightChars.push(key);
@@ -78,12 +90,12 @@ window.onload = function bootup() {
     	}
   	}
 
+  	displayWord();
   	if (guesses === 0) {
   		gameOver(false);
   		document.getElementById("ran-word").innerHTML = wordValue;
   	} else if (shownLetter === wordValue.length) {
   		gameOver(true);
   	}
-
 	}
 }
