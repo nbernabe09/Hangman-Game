@@ -2,7 +2,7 @@ window.onload = function bootup() {
 	
 	var alphabet = 'abcdefghijklmnopqrstuvwxyz';
 	var guesses = 10;
-	var words = ["stitch", "mickey", "goofy", "pluto", "nemo"];
+	var words = ["stitch", "mickey mouse", "goofy", "pluto", "nemo"];
 	var message = {
 		win: 'You win!',
 		lose: 'Ouch... try again.',
@@ -15,7 +15,19 @@ window.onload = function bootup() {
 	document.getElementById("guess-count").textContent = guesses;
 	
 	var wordValue = words[Math.floor(Math.random() * words.length)];
-	var maskedWord = wordValue.replace(/./g, "-");
+	var maskedWord = "<p>";//wordValue.replace(/./g, "-");
+	for (var j = 0; j < wordValue.length; j++) {
+		console.log(wordValue[j]);
+		if (rightChars.includes(wordValue[j])) {
+			maskedWord += wordValue[j];
+		} else if (wordValue[j] === " ") {
+			maskedWord += ("</p> <p>");
+			shownLetter ++;
+		} else {
+			maskedWord += ("-");
+		}
+	}
+	maskedWord += "</p>"
 	document.getElementById("ran-word").innerHTML = maskedWord;
 	console.log(wordValue);
 
@@ -52,7 +64,7 @@ window.onload = function bootup() {
   				var letter = maskedWord[i]
   				if (key.includes(wordValue[i])) {
   					shownLetter ++;
-					}	
+					}
   			}
   		}
 
