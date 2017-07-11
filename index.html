@@ -24,7 +24,8 @@
 		<div class="col-md-10">
 			<div class="row">
 				<div class="col-md-3">
-					<h3>Wins: <span id="win-count">...</span></h3>
+					<!-- <h3>Wins: <span id="win-count">...</span></h3> -->
+					<h3 id="message"></h3>
 				</div>
 				<div class="col-md-9">
 					<h3>Guesses Remaining: <span id="guess-count">...</span></h3>
@@ -33,22 +34,22 @@
 			<div class="row center">
 				<h2>The word is...</h2>
 				<hr>
-				<h1><span id="ran-word">...</span><h1>
+				<h1><p id="ran-word">...</p><h1>
 			</div>
 		</div>
 		<div class="col-md-2 center">
 			<h4>Letters Already Guessed</h4>
 			<hr>
-			<p><span id="user-guess">...</span><p>
+			<p><span id="user-guess"></span><p>
 		</div>
 	</div>
 </div>
 
-<!-- <div class="container">
+<div class="container">
 	<div class="row bottom">
-			<button class="btn btn-warning" onclick="reset()">Play again</button>
+			<button class="btn btn-warning" id="restart">Play again</button>
 	</div>
-</div> -->
+</div>
 
 </body>
 </html>
