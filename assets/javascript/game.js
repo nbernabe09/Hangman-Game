@@ -3,6 +3,7 @@ window.onload = function bootup() {
 	var alphabet = 'abcdefghijklmnopqrstuvwxyz';
 	var guesses = 10;
 	var words = ["lilo and stitch", "mickey mouse", "goofy", "pluto", "nemo", "minnie mouse", "donald duck", "oswald the lucky rabbit", "mulan", "winnie the pooh", "jiminy cricket", "ludwig von drake", "kuzco", "yzma", "mowgli", "cruella de vil", "panchito pistoles", "jose carioca", "mortimer mouse"];
+	// var picture = ["lilo and stitch", "mickey mouse", "goofy", "pluto", "nemo", "minnie mouse", "donald duck", "oswald the lucky rabbit", "mulan", "winnie the pooh", "jiminy cricket", "ludwig von drake", "kuzco", "yzma", "mowgli", "cruella de vil", "panchito pistoles", "jose carioca", "mortimer mouse"];
 	var message = {
 		win: 'You win!',
 		lose: 'Ouch... try again.',
